@@ -1,0 +1,2 @@
+D:\Projects\Lab\PageInspectionChallenge\obj\Debug\pageinspectionchallenge.esproj.SuggestedBindingRedirects.cache
+D:\Projects\Lab\PageInspectionChallenge\obj\Debug\pageinspectionchallenge.esproj.CoreCompileInputs.cache
