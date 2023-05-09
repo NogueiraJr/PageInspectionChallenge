@@ -61,4 +61,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ![20230509 115054](https://github.com/NogueiraJr/PageInspectionChallenge/assets/16601623/6ef793f2-6ea3-4e7b-94c5-890a86a5b431)
 
+![20230509 115930](https://github.com/NogueiraJr/PageInspectionChallenge/assets/16601623/943099e0-a29d-4955-8963-9cc9cf3417e4)
+
+![20230509 153652](https://github.com/NogueiraJr/PageInspectionChallenge/assets/16601623/842a51af-0538-418c-9f7f-56ed3fcf37bd)
 
