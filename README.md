@@ -53,3 +53,12 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ![20230508 171913](https://user-images.githubusercontent.com/16601623/236929733-5ca7ffbd-3fce-4099-9dfd-ae57baa513c6.jpg)
 
+![20230509 114437](https://github.com/NogueiraJr/PageInspectionChallenge/assets/16601623/f60878ff-795b-4dd0-8c13-c12393d272c3)
+
+![20230509 114506](https://github.com/NogueiraJr/PageInspectionChallenge/assets/16601623/217ae3a4-c181-47b3-8788-b733c197a2f2)
+
+![20230509 114840](https://github.com/NogueiraJr/PageInspectionChallenge/assets/16601623/10b73d6c-4af7-4521-8112-3cf33ed47613)
+
+![20230509 115054](https://github.com/NogueiraJr/PageInspectionChallenge/assets/16601623/6ef793f2-6ea3-4e7b-94c5-890a86a5b431)
+
+
