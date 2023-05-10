@@ -51,7 +51,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ![20230508 171905](https://user-images.githubusercontent.com/16601623/236929717-c2bf873a-6da5-434d-ae99-d343abc577b8.jpg)
 
-![20230508 171913](https://user-images.githubusercontent.com/16601623/236929733-5ca7ffbd-3fce-4099-9dfd-ae57baa513c6.jpg)
+![20230510 162406](https://github.com/NogueiraJr/PageInspectionChallenge/assets/16601623/6e13d797-6c41-4be7-880a-06f8a5513979)
 
 ![20230509 114437](https://github.com/NogueiraJr/PageInspectionChallenge/assets/16601623/f60878ff-795b-4dd0-8c13-c12393d272c3)
 
