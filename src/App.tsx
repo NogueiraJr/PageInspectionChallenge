@@ -1,8 +1,22 @@
 ﻿import React, { useState } from "react";
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import "./menu.css";
 
+
+//interface Solicitacao {
+//    status: string;
+//    urls: string[];
+//}
+
 interface Solicitacao {
+    id: string;
+    status: string;
+    urls: string[];
+}
+
+interface Resultado {
+    id: string;
     status: string;
     urls: string[];
 }
@@ -87,7 +101,13 @@ function Cadastro({ handleReturn }: PageProps) {
                     keyword: chave
                 })
             });
-            console.log(await response.json());
+            const data = await response.json();
+            const id = data.id;
+            const existingData = localStorage.getItem(id);
+            if (!existingData) {
+                localStorage.setItem(id, JSON.stringify(data));
+            }
+            console.log(data);
         } catch (error) {
             console.error(error);
         }
@@ -112,12 +132,6 @@ function Cadastro({ handleReturn }: PageProps) {
     );
 }
 
-interface Resultado {
-    id: number;
-    status: string;
-    urls: string[];
-}
-
 function Consulta({ handleReturn }: PageProps) {
     const [chave, setChave] = useState("");
     const [resultado, setResultado] = useState<Resultado[]>([]);
@@ -138,6 +152,8 @@ function Consulta({ handleReturn }: PageProps) {
             const json = await response.json();
 
             // Armazena o resultado em um armazenamento local no browser
+            localStorage.setItem(json.id, JSON.stringify(json));
+
             setResultado((prev) => {
                 const index = prev.findIndex((item) => item.id === json.id);
                 if (index >= 0) {
@@ -151,6 +167,19 @@ function Consulta({ handleReturn }: PageProps) {
             console.error(error);
         }
     };
+
+    useEffect(() => {
+        const results = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key?.startsWith("id")) {
+                const result = JSON.parse(localStorage.getItem(key) ?? "");
+                results.push(result);
+            }
+        }
+        setResultado(results);
+    }, []);
+
 
     return (
         <div className="page-container">
@@ -222,17 +251,10 @@ function Historico({ handleReturn }: PageProps) {
     const [erro, setErro] = useState<boolean>(false);
 
     useEffect(() => {
-        async function fetchSolicitacoes() {
-            try {
-                const response = await fetch("http://testapp.axreng.com:3000/inspections");
-                const data = await response.json();
-                setSolicitacoes(data);
-            } catch (error) {
-                console.error(error);
-                setErro(true);
-            }
-        }
-        fetchSolicitacoes();
+        const storage = window.localStorage;
+        const keys = Object.keys(storage);
+        const data = keys.map(key => JSON.parse(storage.getItem(key)!));
+        setSolicitacoes(data);
     }, []);
 
     return (
@@ -243,7 +265,9 @@ function Historico({ handleReturn }: PageProps) {
             {erro ? (
                 <>
                     <p>Não existem itens reais a serem exibidos.</p>
-                    <p>Segue exemplo da lista para demonstrar a formação da tabela e dados:</p>
+                    <p>
+                        Segue exemplo da lista para demonstrar a formação da tabela e dados:
+                    </p>
                     <table>
                         <thead>
                             <tr>
@@ -271,15 +295,17 @@ function Historico({ handleReturn }: PageProps) {
                 <table>
                     <thead>
                         <tr>
+                            <th>ID da Solicitação</th>
                             <th>Status da Solicitação</th>
-                            <th>Lista de URLs</th>
                         </tr>
                     </thead>
                     <tbody>
                         {solicitacoes.map((solicitacao, index) => (
                             <tr key={index}>
+                                <td>
+                                    <a>{solicitacao.id}</a>
+                                </td>
                                 <td>{solicitacao.status}</td>
-                                <td>{solicitacao.urls.join(", ")}</td>
                             </tr>
                         ))}
                     </tbody>
